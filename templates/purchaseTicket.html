@@ -1,0 +1,55 @@
+{{define "Ticket Page"}}
+<!DOCTYPE html>
+<html lang="en">
+
+{{template "head"}}
+
+<body class="container">
+
+    {{template "header"}}
+
+    <script src="https//js.stripe.com/v3/"></script>
+    <script charset="utf-8">
+        var stripe;
+        fetch('public_keys')
+            .then((response) => response.json())
+            .then((data) => {
+                stripe = Stripe(data.key);
+                console.log('Secces', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error)
+            });
+    </script>
+
+    <main>
+        <section class="container">
+            <div class="grid">
+                <img src="https://i.imgur.com/TMdy94W.jpeg4" alt="Snom in mug">
+                
+                <form action="/create-checkout-session" method="POST">
+                    <div class="description">
+                        <h3>Ticket</h3> 
+                        <h5>$10.00</h5>
+                    </div>
+                    <p>
+                        Text Text Text Text Text Text Text Text Text Text Text 
+                        Text Text Text Text Text Text Text Text Text Text Text 
+                        Text Text Text Text Text Text Text Text Text Text Text 
+                        Text Text Text Text Text Text Text Text Text Text Text 
+                        Text Text Text Text Text Text Text Text Text Text Text 
+                    </p>
+                    <div role="group">
+                        <input type="number" name="numTickets" id="numTickets" min="1" max="5" placeholder="Number of tickets">
+                        {{template "bandSelect"}}
+                        <button type=""  id="checkout-button">Purchase</button>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
+
+{{end}}

@@ -1,0 +1,19 @@
+    <form hx-post="/new-ticket-request/">
+        <div class="grid">
+            <input type="text" id="first_name" name="FirstName" placeholder="First name" />
+            <input type="text" id="last_name" name="LastName" placeholder="Last Name" />
+        </div>
+
+        <input type="email" id="email" name="Email" placeholder="Email">
+        <input type="text" id="address1" name="Address1" placeholder="Address" />
+        <input type="text" id="CardNumber" name="CardNumber" placeholder="Card Number" />
+
+        <div class="grid">
+            <input type="text" id="city" name="City" placeholder="City" />
+            <input type="text" id="state" name="State" placeholder="State" />
+            <input type="text" id="zip" name="Zip" placeholder="Zip Code" />
+            <input type="text" id="country" name="Country" placeholder="Country" />
+        </div>
+
+        <button type="submit">Purchase Ticket</button>
+    </form>
